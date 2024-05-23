@@ -68,7 +68,13 @@ async function addProduct(page) {
        await selectYourBoxType(page);
        await tellUsYourSize(page);
        await sizeGuide(page);
-       //await makeSelection(page);
+
+        makeSelection(page).then(timings => {
+            console.log('Final timings:', timings);
+        }).catch(error => {
+            console.error('Error monitoring request times:', error);
+        });
+
        await addProduct(page);
 
     } catch (error) {
