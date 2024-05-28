@@ -50,7 +50,7 @@ async function addProduct(page) {
     await page.waitForSelector(chooseBoxElem, { visible: true });
     const endTime = performance.now();
     const duration = endTime - startTime;
-    console.log(chalk.blue(`Time taken: ${duration} milliseconds`));
+    console.log(chalk.white(`Time taken: ${duration} milliseconds`));
     console.log(chalk.green('2. Choose your own opens -> Tell Us Your Size √'));
 }
 
@@ -63,19 +63,17 @@ async function addProduct(page) {
         const page = launched.page;
 
         console.log(chalk.white('Testing Hero Section \n'));
-       // Run individual test functions
-       await chooseYourBox(page);
-       await selectYourBoxType(page);
-       await tellUsYourSize(page);
-       await sizeGuide(page);
-
         makeSelection(page).then(timings => {
             console.log('Final timings:', timings);
         }).catch(error => {
             console.error('Error monitoring request times:', error);
         });
-
-       await addProduct(page);
+        // Run individual test functions
+        await chooseYourBox(page);
+        await selectYourBoxType(page);
+        await tellUsYourSize(page);
+        await sizeGuide(page);
+        await addProduct(page);
 
     } catch (error) {
         console.error('Error:', error);

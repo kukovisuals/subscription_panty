@@ -7,7 +7,7 @@ export async function makeSelection(page) {
         if (request.url().endsWith('/collections/first-box-cc-cu-mx-assortment-2.json')) {
             timings['firstBoxRequestStart'] = performance.now();
             request.continue();
-        } else if (request.url().endsWith('/other/eby-coreHelperSubscription.php')) {
+        } else if (request.url().endsWith('/other/eby-customSubsv1.php')) {
             timings['coreHelperRequestStart'] = performance.now();
             request.continue();
         } else {
@@ -20,7 +20,7 @@ export async function makeSelection(page) {
             timings['firstBoxRequestEnd'] = performance.now();
             timings['firstBoxDuration'] = timings['firstBoxRequestEnd'] - timings['firstBoxRequestStart'];
             console.log(`Time taken for first-box request: ${timings['firstBoxDuration']} milliseconds`);
-        } else if (response.url().endsWith('/other/eby-coreHelperSubscription.php')) {
+        } else if (response.url().endsWith('/other/eby-customSubsv1.php')) {
             timings['coreHelperRequestEnd'] = performance.now();
             timings['coreHelperDuration'] = timings['coreHelperRequestEnd'] - timings['coreHelperRequestStart'];
             console.log(`Time taken for core helper request: ${timings['coreHelperDuration']} milliseconds`);
