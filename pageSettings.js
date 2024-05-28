@@ -2,7 +2,7 @@ import puppeteer from 'puppeteer';
 
 async function launchBrowser() {
     // Launch a new browser session
-    const browser = await puppeteer.launch({ headless: false });  // `headless: false` allows you to see the browser interaction
+    const browser = await puppeteer.launch({ headless: true });  // `headless: false` allows you to see the browser interaction
     const page = await browser.newPage();
 
     // Set the viewport width and height
@@ -12,7 +12,7 @@ async function launchBrowser() {
     });
 
     // Navigate to your Shopify store
-    await page.goto('https://shop.join-eby.com/pages/underwear-subscription-membership?_ab=0&_fd=0&_sc=1&preview_theme_id=132285923372');
+    await page.goto('https://shop.join-eby.com/pages/underwear-subscription-membership?_ab=0&_fd=0&_sc=1&preview_theme_id=132471619628');
     console.log('\n')
     
     return { browser, page };
